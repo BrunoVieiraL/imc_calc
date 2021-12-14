@@ -203,15 +203,25 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
               ],
             ),
           ),
-          Container(
-            alignment: Alignment.center,
-            color: kCorBottomBar,
-            width: double.infinity,
-            height: kAlturaBottomBar,
-            child: GestureDetector(
-              child: const Text(
-                "Calcular",
-                style: kDescricaoTextStyle,
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                'telaCalculo',
+              );
+            },
+            child: Container(
+              alignment: Alignment.center,
+              margin: const EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.only(bottom: 20),
+              color: kCorBottomBar,
+              width: double.infinity,
+              height: kAlturaBottomBar,
+              child: GestureDetector(
+                child: const Text(
+                  "Calcular",
+                  style: kBotaoTextStyle,
+                ),
               ),
             ),
           )
@@ -233,8 +243,8 @@ class BotaoCircular extends StatelessWidget {
       shape: const CircleBorder(),
       fillColor: const Color(0xFF7E7E7E),
       constraints: const BoxConstraints.tightFor(
-        width: 56,
-        height: 56,
+        width: 50,
+        height: 50,
       ),
       elevation: 6,
       onPressed: aoPressionar,
