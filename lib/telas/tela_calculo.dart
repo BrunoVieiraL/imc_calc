@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import '../componentes/botao_inferior.dart';
 import 'package:imccalc_flutter/constantes.dart';
-import 'package:imccalc_flutter/cria_container.dart';
-import 'tela_principal.dart';
+import '../componentes/cria_container.dart';
 
 class TelaCalculo extends StatelessWidget {
-  const TelaCalculo({Key key}) : super(key: key);
+  const TelaCalculo({
+    Key key,
+    @required this.feedback,
+    @required this.resultadoIMC,
+    @required this.resultadoTexto,
+  }) : super(key: key);
+
+  final String resultadoIMC;
+  final String resultadoTexto;
+  final String feedback;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +29,8 @@ class TelaCalculo extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
+              padding: const EdgeInsets.all(15),
+              alignment: Alignment.bottomCenter,
               child: const Text(
                 'Resultado',
                 style: kTituloTextStyle,
@@ -33,25 +44,29 @@ class TelaCalculo extends StatelessWidget {
               filhoCartao: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
-                    'data',
+                    resultadoTexto.toUpperCase(),
                     style: kResultadoTextStyle,
                   ),
                   Text(
-                    'data',
+                    resultadoIMC,
                     style: kIMCTextStyle,
                   ),
                   Text(
-                    'data',
+                    feedback,
                     textAlign: TextAlign.center,
                     style: kCorpoTextStyle,
                   ),
-                  
                 ],
               ),
             ),
-          )
+          ),
+          BotaoInferior(
+              aoPressionar: () {
+                Navigator.pop(context);
+              },
+              tituloBotao: "RECALCULAR")
         ],
       ),
     );

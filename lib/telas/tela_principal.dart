@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'genero_cartao.dart';
-import 'cria_container.dart';
-import 'constantes.dart';
+import 'package:imccalc_flutter/telas/tela_calculo.dart';
+import '../componentes/genero_cartao.dart';
+import '../componentes/cria_container.dart';
+import '../constantes.dart';
+import '../componentes/botao_inferior.dart';
+import '../componentes/botao_circular.dart';
+import '../calculadora_imc.dart';
 
 enum Genero {
   masculino,
@@ -19,7 +23,7 @@ class TelaPrincipal extends StatefulWidget {
 
 class _TelaPrincipalState extends State<TelaPrincipal> {
   Genero sexoSelecionado;
-  double altura = 160;
+  int altura = 160;
   int peso = 60;
   int idade = 25;
 
@@ -103,10 +107,10 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                   Slider(
                     activeColor: const Color(0xFFFF5822),
                     inactiveColor: const Color(0xFF8D8E98),
-                    value: altura,
+                    value: altura.toDouble(),
                     onChanged: (novoValor) {
                       setState(() {
-                        altura = novoValor;
+                        altura = novoValor.round();
                       });
                     },
                     min: 0,
@@ -203,52 +207,26 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(
-                context,
-                'telaCalculo',
-              );
-            },
-            child: Container(
-              alignment: Alignment.center,
-              margin: const EdgeInsets.only(top: 10),
-              padding: const EdgeInsets.only(bottom: 20),
-              color: kCorBottomBar,
-              width: double.infinity,
-              height: kAlturaBottomBar,
-              child: GestureDetector(
-                child: const Text(
-                  "Calcular",
-                  style: kBotaoTextStyle,
-                ),
-              ),
-            ),
-          )
+          BotaoInferior(
+              tituloBotao: 'CALCULAR',
+              aoPressionar: () {
+                CalculadoraIMC calc = CalculadoraIMC(
+                  altura: altura,
+                  peso: peso,
+                );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TelaCalculo(
+                      feedback: calc.informarFeedBack(),
+                      resultadoIMC: calc.calcularIMC(),
+                      resultadoTexto: calc.obterResultado(),
+                    ),
+                  ),
+                );
+              }),
         ],
       ),
-    );
-  }
-}
-
-class BotaoCircular extends StatelessWidget {
-  const BotaoCircular(
-      {Key key, @required this.icone, @required this.aoPressionar})
-      : super(key: key);
-  final IconData icone;
-  final Function aoPressionar;
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      shape: const CircleBorder(),
-      fillColor: const Color(0xFF7E7E7E),
-      constraints: const BoxConstraints.tightFor(
-        width: 50,
-        height: 50,
-      ),
-      elevation: 6,
-      onPressed: aoPressionar,
-      child: Icon(icone),
     );
   }
 }
