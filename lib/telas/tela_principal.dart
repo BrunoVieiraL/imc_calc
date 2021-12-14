@@ -49,9 +49,11 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                 Expanded(
                   child: CriaContainer(
                     aoPressionar: () {
-                      setState(() {
-                        sexoSelecionado = Genero.masculino;
-                      });
+                      setState(
+                        () {
+                          sexoSelecionado = Genero.masculino;
+                        },
+                      );
                     },
                     cor: sexoSelecionado == Genero.masculino
                         ? kCorContainerAtivo
@@ -64,9 +66,11 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                 Expanded(
                   child: CriaContainer(
                     aoPressionar: () {
-                      setState(() {
-                        sexoSelecionado = Genero.feminino;
-                      });
+                      setState(
+                        () {
+                          sexoSelecionado = Genero.feminino;
+                        },
+                      );
                     },
                     cor: sexoSelecionado == Genero.feminino
                         ? kCorContainerAtivo
@@ -109,9 +113,11 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                     inactiveColor: const Color(0xFF8D8E98),
                     value: altura.toDouble(),
                     onChanged: (novoValor) {
-                      setState(() {
-                        altura = novoValor.round();
-                      });
+                      setState(
+                        () {
+                          altura = novoValor.round();
+                        },
+                      );
                     },
                     min: 0,
                     max: 230,
@@ -146,17 +152,21 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                             BotaoCircular(
                               icone: FontAwesomeIcons.minus,
                               aoPressionar: () {
-                                setState(() {
-                                  peso--;
-                                });
+                                setState(
+                                  () {
+                                    peso--;
+                                  },
+                                );
                               },
                             ),
                             BotaoCircular(
                               icone: FontAwesomeIcons.plus,
                               aoPressionar: () {
-                                setState(() {
-                                  peso++;
-                                });
+                                setState(
+                                  () {
+                                    peso++;
+                                  },
+                                );
                               },
                             )
                           ],
@@ -185,17 +195,21 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                             BotaoCircular(
                               icone: FontAwesomeIcons.minus,
                               aoPressionar: () {
-                                setState(() {
-                                  idade--;
-                                });
+                                setState(
+                                  () {
+                                    idade--;
+                                  },
+                                );
                               },
                             ),
                             BotaoCircular(
                               icone: FontAwesomeIcons.plus,
                               aoPressionar: () {
-                                setState(() {
-                                  idade++;
-                                });
+                                setState(
+                                  () {
+                                    idade++;
+                                  },
+                                );
                               },
                             )
                           ],
@@ -208,23 +222,24 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
             ),
           ),
           BotaoInferior(
-              tituloBotao: 'CALCULAR',
-              aoPressionar: () {
-                CalculadoraIMC calc = CalculadoraIMC(
-                  altura: altura,
-                  peso: peso,
-                );
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TelaCalculo(
-                      feedback: calc.informarFeedBack(),
-                      resultadoIMC: calc.calcularIMC(),
-                      resultadoTexto: calc.obterResultado(),
-                    ),
+            tituloBotao: 'CALCULAR',
+            aoPressionar: () {
+              CalculadoraIMC calc = CalculadoraIMC(
+                altura: altura,
+                peso: peso,
+              );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => TelaCalculo(
+                    feedback: calc.informarFeedBack(),
+                    resultadoIMC: calc.calcularIMC(),
+                    resultadoTexto: calc.obterResultado(),
                   ),
-                );
-              }),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
