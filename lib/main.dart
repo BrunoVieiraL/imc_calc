@@ -7,7 +7,7 @@ void main() => runApp(
     );
 
 class CalculadoraIMC extends StatelessWidget {
-  const CalculadoraIMC({Key key}) : super(key: key);
+  const CalculadoraIMC({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

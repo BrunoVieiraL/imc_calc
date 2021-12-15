@@ -5,10 +5,10 @@ import '../componentes/cria_container.dart';
 
 class TelaCalculo extends StatelessWidget {
   const TelaCalculo({
-    Key key,
-    @required this.feedback,
-    @required this.resultadoIMC,
-    @required this.resultadoTexto,
+    Key? key,
+    required this.feedback,
+    required this.resultadoIMC,
+    required this.resultadoTexto,
   }) : super(key: key);
 
   final String resultadoIMC;

@@ -3,9 +3,9 @@ import 'package:imccalc_flutter/constantes.dart';
 
 class GeneroCartao extends StatelessWidget {
   const GeneroCartao({
-    Key key,
-    @required this.genero,
-    @required this.iconeGenero,
+    Key? key,
+    required this.genero,
+    required this.iconeGenero,
   }) : super(key: key);
 
   final String genero;

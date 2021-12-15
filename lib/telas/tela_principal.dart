@@ -15,14 +15,14 @@ enum Genero {
 
 //double imc = peso/(altura*altura);
 class TelaPrincipal extends StatefulWidget {
-  const TelaPrincipal({Key key}) : super(key: key);
+  const TelaPrincipal({Key? key}) : super(key: key);
 
   @override
   _TelaPrincipalState createState() => _TelaPrincipalState();
 }
 
 class _TelaPrincipalState extends State<TelaPrincipal> {
-  Genero sexoSelecionado;
+  Genero? sexoSelecionado;
   int altura = 160;
   int peso = 60;
   int idade = 25;

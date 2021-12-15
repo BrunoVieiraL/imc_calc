@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class BotaoCircular extends StatelessWidget {
   const BotaoCircular(
-      {Key key, @required this.icone, @required this.aoPressionar})
+      {Key? key, required this.icone, required this.aoPressionar})
       : super(key: key);
   final IconData icone;
   final Function aoPressionar;
@@ -16,7 +16,7 @@ class BotaoCircular extends StatelessWidget {
         height: 50,
       ),
       elevation: 6,
-      onPressed: aoPressionar,
+      onPressed: aoPressionar as void Function()?,
       child: Icon(icone),
     );
   }
