@@ -18,7 +18,7 @@ class CalculadoraIMC extends StatelessWidget {
         ),
         initialRoute: 'telaPrincipal',
         routes: {
-          'telaPrincipal': (context) => const TelaPrincipal(),
+          'telaPrincipal': (context) =>  const TelaPrincipal(),
           'telaCalculo': (context) => TelaCalculo(
                 resultadoIMC: const CalculadoraIMC().toString(),
                 feedback: const CalculadoraIMC().toString(),

@@ -232,7 +232,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => TelaCalculo(
-                    feedback: calc.informarFeedBack(),
+                    feedback: calc.informarFeedback(),
                     resultadoIMC: calc.calcularIMC(),
                     resultadoTexto: calc.obterResultado(),
                   ),
