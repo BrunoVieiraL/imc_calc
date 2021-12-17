@@ -35,6 +35,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
 
   @override
   Widget build(BuildContext context) {
+    double imc = peso / pow(altura / 100, 2);
     return Scaffold(
       appBar: AppBar(
         title: const Text(
