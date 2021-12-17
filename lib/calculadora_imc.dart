@@ -1,16 +1,9 @@
-import 'dart:math';
-
 class CalculadoraIMC {
   CalculadoraIMC({required this.peso, required this.altura, required this.imc});
 
   final int peso;
   final int altura;
   final double imc;
-
-  String calcularIMC() {
-    double imc = peso / pow(altura / 100, 2);
-    return imc.toStringAsFixed(1);
-  }
 
   String obterResultado() {
     if (imc >= 25) {

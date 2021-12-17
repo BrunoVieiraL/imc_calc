@@ -27,7 +27,7 @@ class TelaCalculo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Expanded(
+          Expanded( 
             child: Container(
               padding: const EdgeInsets.all(15),
               alignment: Alignment.bottomCenter,
