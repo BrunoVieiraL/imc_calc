@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:imccalc_flutter/telas/tela_calculo.dart';
@@ -225,6 +227,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
             tituloBotao: 'CALCULAR',
             aoPressionar: () {
               CalculadoraIMC calc = CalculadoraIMC(
+                imc: imc,
                 altura: altura,
                 peso: peso,
               );
