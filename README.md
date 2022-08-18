@@ -1,6 +1,6 @@
 # imc_calc
 
-A new Flutter project.
+IMC calculator
 
 ## Getting Started
 
